@@ -22,9 +22,21 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * Nacos starter.
- *
- * @author nacos
+ * Cluster.conf redis managed cluster member node addressing pattern. 
+ * 注意事项: 
+ * 启用 - 在启动配置文件中,配置
+ * nacos.core.member.lookup.type=redis 
+ * 
+ * 设置发送心跳间隔时间 - 在启动配置文件中,配置 
+ * nacos.core.redis.sync.delay=
+ * 单位ms,如果不配置,默认5000ms
+ * 
+ * 
+ * 设置超时剔除集群时间 - 在启动配置文件中,配置 
+ * nacos.core.redis.node.expire=
+ * 单位ms,如果不配置,默认3分钟(3 * 60 * 1000ms).
+ * 
+ * @author gongran
  */
 @SpringBootApplication(scanBasePackages = "com.alibaba.nacos")
 @ServletComponentScan
